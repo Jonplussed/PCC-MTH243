@@ -1,5 +1,5 @@
-acs_survey <- read.csv('acs_survey.csv')
-nba_standings <- read.csv('nba_standings.csv')
+acs_survey <- read.csv('acs_survey.csv', header = TRUE)
+nba_standings <- read.csv('nba_standings.csv', header = TRUE)
 
 # Create a dot chart of NBA team winnings.
 dotchart(nba_standings$W)
