@@ -14,3 +14,11 @@ senate <- read.csv('../us-senate.csv', colClasses = c(
 
 # Create contingency table for data
 table(senate)
+
+# OUTPUT:
+
+#                gender
+#  party         female male
+#  democrat        16   32
+#  independent      0    2
+#  republican       8   42
