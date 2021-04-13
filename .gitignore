@@ -1,3 +1,5 @@
+*.pages
 *.pdf
 *.swp
-*.pages
+
+us-senate.csv
