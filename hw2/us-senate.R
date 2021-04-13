@@ -1,5 +1,10 @@
 #! /usr/bin/env Rscript
 
+# Parse command line arguments
+
+args <- commandArgs(trailingOnly=TRUE)
+shouldPlot <- '--plot' %in% args
+
 # Read in the "entered_office" date column in our dataset CSV. See:
 # https://raw.githubusercontent.com/CivilServiceUSA/us-senate/35ac3ac02be3fce39a856fe9a265f302ce1773f8/us-senate/data/us-senate.csv
 
@@ -25,11 +30,20 @@ xMax <- binCount * binSize
 yMin <- 0
 yMax <- 40
 
-# Generate the histogram.
+# Generate the histogram
 
-hist(yearsInOffice,
-  breaks = seq(xMin, xMax, by=binSize),
-  xaxp = c(xMin,xMax,binCount),
-  yaxp = c(yMin,yMax,8),
-  plot = FALSE
-)
+if (shouldPlot) {
+  pdf(file = 'years_in_office.pdf')
+  hist(yearsInOffice,
+    breaks = seq(xMin, xMax, by=binSize),
+    xlim = c(xMin, xMax),
+    xaxp = c(xMin, xMax, binCount), # ignored unless plotted
+    yaxp = c(yMin, yMax, 8) # ignored unless plotted
+  )
+  dev.off()
+} else {
+  hist(yearsInOffice,
+    breaks = seq(xMin, xMax, by=binSize),
+    plot = FALSE
+  )
+}
