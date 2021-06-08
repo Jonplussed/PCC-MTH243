@@ -1,6 +1,8 @@
 *.pages
 *.pdf
 *.swp
+*.RData
+*.Rhistory
 
 us-senate.csv
 new-covid-cases.csv
